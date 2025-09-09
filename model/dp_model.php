@@ -4,11 +4,11 @@ require_once "connect.php";
 class Model extends Connection{
     function findAll(){
         $sql = "SELECT * FROM products";
-        $result = $this->connect()->query;
+        $result = $this->connect()->query($sql);
 
         $data = [];
         if($result->num_rows> 0){
-            while($row = $result->fetch_assoc){
+            while($row = $result->fetch_assoc()){
                 $data[] = $row;
             }
             return $data;
@@ -16,9 +16,14 @@ class Model extends Connection{
     }
 
     function findById($id){
-        $sql = "SELECT * FROM products WHERE id='$id";
-        $result = $this->connect()->query;
-        return $result->fetch_assoc;
+        $sql = "SELECT * FROM products WHERE id='$id'";
+        $result = $this->connect()->query($sql);
+
+        if($result->num_rows > 0){
+
+        return $result->fetch_assoc();
+        }
+        return null;    
     }
     
 }

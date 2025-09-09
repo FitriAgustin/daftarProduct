@@ -23,8 +23,8 @@
     </tr>
 
 <?php
-if(!empty($product)){
-    foreach($product as $p){
+if(!empty($products)){
+    foreach($products as $p){
         echo "<tr>
         <td>{$p['id']}</td>
         <td>{$p['nama']}</td>
@@ -41,17 +41,17 @@ else {
 ?>
 </table>
 
-<?php if ($product): ?>
+    <?php if($product): ?>    
     <h2>Detail Product</h2>
-    <p>ID: <? $productt['id']?></p>
-    <p>Nama: <? $productt['nama']?></p>
-    <p>Brand: <? $productt['brand']?></p>
-    <p>Harga: <? $productt['harga']?></p>
-    <p>Stock: <? $productt['stock']?></p>
-    <p>spesifikasi: <? $productt['spesifikasi']?></p>
-    <?php else:?>
-        <p>Data tidak ditemukan</p>
-        <?php endif;?>
+    <p>ID: <?= $product['id']?></p>
+    <p>Nama: <?= $product['nama']?></p>
+    <p>Brand: <?= $product['brand']?></p>
+    <p>Harga: <?= $product['harga']?></p>
+    <p>Stock: <?= $product['stock']?></p>
+    <p>spesifikasi: <?= $product['spesifikasi']?></p>
+<?php else:?>
+    <p>Data tidak ditemukan</p>
+<?php endif;?>
 
     
 </body>
